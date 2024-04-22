@@ -89,6 +89,23 @@ h2 {
     font-size: 25px;
 }
 
+@keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+html:not(.scrolled) #header-title span:nth-child(1){
+    animation: fadein 1.0s ease-out 0s backwards;
+}
+
+html:not(.scrolled) #header-title span:nth-child(2) {
+    animation: fadein 1.0s ease-out 0.5s backwards;
+}
+
+html.scrolled #header-title span{
+    display: none;
+}
+
 
 
 /*### HEADER-MENU ###*/
@@ -163,6 +180,7 @@ nav ul li a:active {
     width: 30%;
     margin-right: 10px;
 }
+
 #home-img img {
     width: 100%;
     opacity: 0.9;
@@ -255,6 +273,138 @@ nav ul li a:active {
     background-color: white;
 }
 
+
+
+/*### Education ###*/
+#education .section-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#education .section-content .text {
+    width: 100%;
+    text-align: justify;
+}
+
+#education .section-content .section-item {
+    width: 45%;
+    background-color: rgba(135, 135, 135, 0.1);
+    box-shadow: 10px 5px 5px rgba(135, 135, 135, 0.3);
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+#education .section-content .section-item h3 {
+    color: rgb(54, 53, 53);
+    text-align: center;
+}
+
+#education .section-item .img-holder {
+    width: 100%;
+    height: 0;
+    padding-bottom: 60%; /* to maintain aspect ratio of the img*/
+    position: relative;
+}
+
+#education .section-item .img-holder img {
+    width: 100%;
+    opacity: 0.9;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: opacity 0.5s ease;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+#education .section-item p {
+    margin-top: 5%;
+    text-align: justify;
+}
+
+#education .section-item:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+#education .section-item:hover h3 {
+    color: rgba(255, 60, 0, 1);
+}
+
+@media screen and (max-width: 768px) { /* section items are displayed in one column when tyhe display is small */
+    #education .section-content {
+        margin: 0 auto;
+    }
+    #education .section-content .section-item {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+
+
+/*### EXPERIENCE ###*/
+#experience {
+    background-color: rgba(135, 135, 135, 0.1);
+    text-align: justify;
+}
+
+#experience .skills .section-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    flex-wrap: wrap; 
+    padding: 0;
+}
+
+#experience .section-content > div {
+    flex: 0; /* to limit the spacve between icons */
+    margin: 1px;
+}
+
+#experience .skills .section-content svg{
+    width: 40px;
+    padding: 0 10px;
+}
+
+#experience .skills .section-content .html {
+    padding-left: 0; /* remove padding from the first icon */
+}
+
+#experience .skills .section-content .html:hover svg {
+    fill: rgba(255, 60, 0, 1);
+}
+
+#experience .skills .section-content .css:hover svg {
+    fill: rgb(52, 52, 225);
+}
+
+#experience .skills .section-content .js:hover svg {
+    fill: rgb(131, 127, 2);
+}
+
+#experience .skills .section-content .laravel:hover svg {
+    fill: rgba(255, 60, 0, 1);
+}
+
+#experience .skills .section-content .vue:hover svg {
+    fill: rgb(39, 147, 0);
+}
+
+@media (max-width: 768px) {
+    .section-item {
+        justify-content: space-between;
+    }
+
+    .section-item > div {
+        flex: 0 0 50%; /* each icon take up half the width means two per row */
+        max-width: 50%; /* ensure icons do not exced half of the width */
+    }
+}
 
 
 
