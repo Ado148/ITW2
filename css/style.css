@@ -153,8 +153,9 @@ nav ul li a:hover {
     text-shadow: 0px 0px 2px rgba(255, 60, 0, 0.8);
 }
 
-nav ul li a:active {
-    background-color: #8d8d8d;
+nav ul li a.active {
+    background-color: #00ff26; 
+    color: white;
 }
 
 
@@ -404,6 +405,236 @@ nav ul li a:active {
         flex: 0 0 50%; /* each icon take up half the width means two per row */
         max-width: 50%; /* ensure icons do not exced half of the width */
     }
+}
+
+
+
+/*### PROJECTS ###*/
+#projects .heading-projects {
+    margin-left: 10%;
+}
+
+#projects .section-item .figures img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+#projects .section-item .description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+    background-color: rgba(54, 53, 53);
+    color: rgba(255, 60, 0);
+}
+
+#projects .section-item .description h3 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#projects .section-item .description span {
+    margin-top: 3%;
+    font-size: 15px;
+    padding: 0 5%;
+}
+
+#projects .section-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 15px solid rgba(255, 255, 255);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#projects .section-content .section-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    position: relative;
+    overflow: hidden; /*to be inside of a cell*/
+}
+
+#projects .section-item .description::before { /*triangle*/
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateX(-50%) rotate(-90deg);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid;
+}
+
+
+/*- rgba(255, 60, 0, 0.8) - orange for hover effect etc.
+- rgba(54, 53, 53, 0.7) - grey for the elements background color*/
+#projects .section-item:nth-child(1) { /*website restaurant*/
+    grid-template-columns: 1fr 1fr;
+    grid-row: 1; /*referring to the grid section-content*/ 
+    grid-column: span 2; /*referring to the grid section-content*/
+}
+#projects .section-item:nth-child(1) .figures {
+    grid-row: 1; /*referring to the grid .section-item:nth-child(1)*/
+    grid-column: 1;
+}
+#projects .section-item:nth-child(1) .description {
+    grid-row: 1;
+    grid-column: 2;
+}
+#projects .section-item:nth-child(1) .description::before {
+    border-bottom-color: rgba(54, 53, 53);
+}
+#projects .section-item:nth-child(1):hover { 
+    border: 5px solid rgba(255, 60, 0);
+}
+
+
+
+#projects .section-item:nth-child(2) { /*website design*/
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row: span 2;
+    grid-column: 1;
+}
+#projects .section-item:nth-child(2) .figures {
+    grid-row: 2;
+    grid-column: 1;
+}
+#projects .section-item:nth-child(2) .description {
+    grid-row: 1;
+    grid-column: 1;
+}
+#projects .section-item:nth-child(2) .description::before {
+    position: absolute;
+    top: 100%;
+    left: 45%;
+    transform: rotate(180deg);
+    border-bottom-color: rgba(54, 53, 53);
+}
+#projects .section-item:nth-child(2):hover {
+    border: 5px solid rgba(255, 60, 0);
+}
+
+#projects .section-item:nth-child(3) { /*malware detection*/
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row: span 2;
+    grid-column: 2;
+}
+#projects .section-item:nth-child(3) .figures {
+    grid-row: 1;
+    grid-column: 1;
+}
+#projects .section-item:nth-child(3) .description {
+    grid-row: 2;
+    grid-column: 1;
+}
+#projects .section-item:nth-child(3) .description::before {
+    position: absolute;
+    top: -20px;
+    left: 45%;
+    transform: rotate(0deg);
+    border-bottom-color: rgba(54, 53, 53);
+}
+#projects .section-item:nth-child(3):hover {
+    border: 5px solid rgba(255, 60, 0);
+}
+
+#projects .section-item:nth-child(4) { /*time management*/
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row: span 2;
+    grid-column: 3;
+}
+#projects .section-item:nth-child(4) .figures {
+    grid-row: 1;
+    grid-column: 1;
+}
+#projects .section-item:nth-child(4) .description {
+    grid-row: 2;
+    grid-column: 1;
+}
+#projects .section-item:nth-child(4) .description::before {
+    position: absolute;
+    top: -20px;
+    left: 45%;
+    transform: rotate(0deg);
+    border-bottom-color: rgba(54, 53, 53);
+}
+#projects .section-item:nth-child(4):hover {
+    border: 5px solid rgba(255, 60, 0);
+}
+
+
+
+#projects .section-item:nth-child(5) { /*chat application*/
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row: 1 / span 2; 
+    grid-column: 3;
+}
+#projects .section-item:nth-child(5) .description::before {
+    position: absolute;
+    top: -20px;
+    left: 45%;
+    transform: rotate(0deg);
+    border-bottom-color: rgba(54, 53, 53);
+}
+#projects .section-item:nth-child(5):hover {
+    border: 5px solid rgba(255, 60, 0);
+}
+
+
+
+#projects .section-item:nth-child(6) { /*website for high school*/
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-row: 4;
+    grid-column: 1 / span 2;
+}
+#projects .section-item:nth-child(6) .figures {
+    grid-row: 1;
+    grid-column: 2;
+}
+#projects .section-item:nth-child(6) .description {
+    grid-row: 1;
+    grid-column: 1;
+}
+#projects .section-item:nth-child(6) .description::before {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    bottom: 50%;
+    transform:  translateX(-25%) rotate(90deg);
+    border-bottom-color: rgba(54, 53, 53);
+}
+#projects .section-item:nth-child(6):hover {
+    border: 5px solid rgba(255, 60, 0);
+}
+#projects .section-item:nth-child(6):hover {
+    border: 5px solid rgba(255, 60, 0);
+}
+
+#projects .section-item:hover .figures img {
+    opacity: 1;
+}
+
+#projects .section-item:hover .description {
+    opacity: 1;
+}
+
+#projects .section-item .description h3 a:hover {
+    color: rgba(255, 60, 0, 0.8);
 }
 
 
