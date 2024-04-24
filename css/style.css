@@ -18,6 +18,7 @@ html {
 
 body {
     font-family: Arial, sans-serif;
+    font-size: 1rem;
     margin: 0;
     padding: 0;
 }
@@ -61,8 +62,14 @@ h2 {
 
 .section-head { /* h2 elelemtns or p elements in the start of the section*/
     padding: 0 10%;
-
 }
+
+@media screen and (max-width: 768px) {
+    h2 { /*globally set all h2 to center*/
+        text-align: center;
+    }
+}
+
 
 
 
@@ -74,6 +81,11 @@ h2 {
     font-size: 50px;
     text-align: left;
     padding: 200px 0 200px 0;
+}
+
+#header-title a {
+    text-decoration: none;
+    color: white;
 }
 
 #header-title span {
@@ -153,11 +165,41 @@ nav ul li a:hover {
     text-shadow: 0px 0px 2px rgba(255, 60, 0, 0.8);
 }
 
-nav ul li a.active {
-    background-color: #00ff26; 
+#hamburger-menu {
+    display: none;
+    cursor: pointer;
     color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
+@media (max-width: 768px) {
+    #nav-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    
+    #nav-menu.show {
+        max-height: 500px; /* Adjust this value based on the height of your menu */
+        transition: max-height 0.3s ease-in;
+    }
+
+    #hamburger-menu {
+        display: block;
+    }
+
+    nav ul li {
+        display: block;
+        margin-left: 0;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+    }
+}
 
 
 /*### HOME ###*/
@@ -178,7 +220,7 @@ nav ul li a.active {
 
 #home-img  {
     float: left;
-    width: 30%;
+    width: 350px;
     margin-right: 10px;
 }
 
@@ -195,6 +237,13 @@ nav ul li a.active {
     opacity: 1;
 }
 
+@media screen and (max-width: 768px) {
+    #home-img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
 
 
 /*### ABOUT ###*/
@@ -206,11 +255,11 @@ nav ul li a.active {
 #about .section-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) minmax(250px, 1fr));
-    grid-gap: 10px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     margin: auto;
-    overflow-y: visible;
+    overflow-y: visible; /* to show the hidden text under the img */
     color: white;
 }
 
@@ -274,6 +323,16 @@ nav ul li a.active {
     background-color: white;
 }
 
+@media screen and (max-width: 768px) {
+    #about .section-content {
+        gap: 5px;
+    }
+
+    #about .section-head { 
+        padding: 0 7%;
+    }
+}
+
 
 
 /*### Education ###*/
@@ -282,6 +341,10 @@ nav ul li a.active {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+#education .heading-education {
+    margin-left: 10%;
 }
 
 #education .section-content .text {
@@ -306,7 +369,7 @@ nav ul li a.active {
 }
 
 #education .section-item .img-holder {
-    width: 100%;
+    width: 610px;
     height: 0;
     padding-bottom: 60%; /* to maintain aspect ratio of the img*/
     position: relative;
@@ -341,8 +404,19 @@ nav ul li a.active {
         margin: 0 auto;
     }
     #education .section-content .section-item {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
+        height: 450px;
+    }
+
+    #education .section-item .img-holder {
+        width: 100%;
+    }
+
+
+
+    #education .section-content .section-item p {
+        padding: 0 30px;
     }
 }
 
@@ -397,11 +471,11 @@ nav ul li a.active {
 }
 
 @media (max-width: 768px) {
-    .section-item {
+    #experience .section-item {
         justify-content: space-between;
     }
 
-    .section-item > div {
+    #experience .section-item > div {
         flex: 0 0 50%; /* each icon take up half the width means two per row */
         max-width: 50%; /* ensure icons do not exced half of the width */
     }
@@ -441,16 +515,15 @@ nav ul li a.active {
 
 #projects .section-item .description span {
     margin-top: 3%;
-    font-size: 15px;
     padding: 0 5%;
+    padding-bottom: 10px;
 }
 
 #projects .section-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    border: 15px solid rgba(255, 255, 255);
-    max-width: 1200px;
+    border: 10px solid rgba(255, 255, 255);
     margin: 0 auto;
 }
 
@@ -476,8 +549,7 @@ nav ul li a.active {
 }
 
 
-/*- rgba(255, 60, 0, 0.8) - orange for hover effect etc.
-- rgba(54, 53, 53, 0.7) - grey for the elements background color*/
+
 #projects .section-item:nth-child(1) { /*website restaurant*/
     grid-template-columns: 1fr 1fr;
     grid-row: 1; /*referring to the grid section-content*/ 
@@ -637,7 +709,43 @@ nav ul li a.active {
     color: rgba(255, 60, 0, 0.8);
 }
 
+@media (max-width: 767px) {
+    #projects .heading-projects {
+        margin: 0 auto;
+    }
 
+    #projects .section-content {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        border: 15px solid rgba(255, 255, 255);
+        margin: 0 auto;
+    }
+
+    #projects .section-content .section-item {
+        width: 100%;
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        margin-bottom: 25px; /* space between items */
+    }
+
+    #projects .section-content .section-item .figures img {
+        width: 100%; 
+        height: auto;
+    }
+
+    #projects .section-content .section-item .description {
+        width: 100%; 
+        text-align: center;
+        height: 250px;
+        margin-top: -4px;
+    }
+
+    #projects .section-content .section-item .description::before {
+        display: none;
+    }
+}
 
 /*### FOOTER ###*/
 footer {
