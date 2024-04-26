@@ -66,7 +66,7 @@ h2 {
 
 @media screen and (max-width: 768px) {
     h2 { /*globally set all h2 to center*/
-        text-align: center;
+        text-align: center; 
     }
 }
 
@@ -183,7 +183,7 @@ nav ul li a:hover {
     }
     
     #nav-menu.show {
-        max-height: 500px; /* Adjust this value based on the height of your menu */
+        max-height: 500px;
         transition: max-height 0.3s ease-in;
     }
 
@@ -310,12 +310,12 @@ nav ul li a:hover {
 }
 
 #about .section-item:hover img {
-    transform: scale(1.05); /* zväčši obrázok */
+    transform: scale(1.05); /* increase the size of the img */
     opacity: 1;
 }
 
 #about .section-item:hover {
-    background-color: rgba(255, 60, 0, 0.8); /* Zmení farbu pozadia na bledo zelenú */
+    background-color: rgba(255, 60, 0, 0.8);
 }
 
 #about .section-item:hover h4::after {
@@ -412,8 +412,6 @@ nav ul li a:hover {
     #education .section-item .img-holder {
         width: 100%;
     }
-
-
 
     #education .section-content .section-item p {
         padding: 0 30px;
